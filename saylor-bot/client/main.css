@@ -1,4 +1,84 @@
 body {
-  padding: 10px;
   font-family: sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh; /* Limit height */
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#chat-log {
+  border: 1px solid #ccc;
+  height: calc(100% - 120px); /* Adjust height based on other elements */
+  overflow-y: auto; /* Add scroll for overflow */
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #fafafa;
+  flex-grow: 1; /* Allow chat log to take available space */
+}
+
+.input-area {
+  display: flex;
+  margin-top: auto; /* Push input area to the bottom */
+}
+
+#user-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+#send-button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+}
+
+#send-button:hover {
+  background-color: #0056b3;
+}
+
+/* Basic message styling */
+.message {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.user-message {
+  background-color: #d1e7fd;
+  align-self: flex-end;
+  margin-left: auto; /* Push user messages to the right */
+}
+
+.bot-message {
+  background-color: #e2e3e5;
+  align-self: flex-start;
+  margin-right: auto; /* Push bot messages to the left */
 }
