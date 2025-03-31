@@ -17,12 +17,17 @@ values:
       # Provide the actual key using `pulumi env set` or the Pulumi Service UI
       # Example command: pulumi env set saylor-bot GEMINI_API_KEY --secret <your-key>
       # default: "YOUR_GEMINI_API_KEY_HERE" # Placeholder - DO NOT COMMIT REAL KEYS
+    MONGO_URL:
+      description: The connection URI for the MongoDB Atlas database.
+      secret: true
+      # Provide the actual URI using `pulumi env set` or the Pulumi Service UI
+      # Example command: pulumi env set saylor-bot MONGO_URL --secret <your-uri>
 
   # Environment variables to be injected into the application container
   environmentVariables:
     # Inject the Gemini API key into the runtime environment
     GEMINI_API_KEY: ${secrets.GEMINI_API_KEY}
+    MONGO_URL: ${secrets.MONGO_URL}
     # Add other environment variables as needed
     # Example:
     #   NODE_ENV: production
-    #   MONGO_URL: "mongodb://..." # If using a separate MongoDB instance
