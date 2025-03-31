@@ -1,0 +1,28 @@
+# Pulumi ESC Environment for Saylor Bot
+# Defines configuration and secrets for the application.
+# Replace "YOUR_GEMINI_API_KEY_HERE" with your actual key via the Pulumi service or CLI:
+# `pulumi env set saylor-bot GEMINI_API_KEY --secret <your-key>`
+
+values:
+  # Configuration values can be added here if needed
+  # example:
+  #   serviceName: saylor-bot-service
+
+  # Secrets required by the application
+  secrets:
+    # Gemini API Key - This should be set securely
+    GEMINI_API_KEY:
+      description: The API key for accessing the Google Gemini service.
+      secret: true # Marks this value as a secret
+      # Provide the actual key using `pulumi env set` or the Pulumi Service UI
+      # Example command: pulumi env set saylor-bot GEMINI_API_KEY --secret <your-key>
+      # default: "YOUR_GEMINI_API_KEY_HERE" # Placeholder - DO NOT COMMIT REAL KEYS
+
+  # Environment variables to be injected into the application container
+  environmentVariables:
+    # Inject the Gemini API key into the runtime environment
+    GEMINI_API_KEY: ${secrets.GEMINI_API_KEY}
+    # Add other environment variables as needed
+    # Example:
+    #   NODE_ENV: production
+    #   MONGO_URL: "mongodb://..." # If using a separate MongoDB instance
